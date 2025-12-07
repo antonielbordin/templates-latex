@@ -1,0 +1,568 @@
+% ============================================================================
+% TEMPLATE DE ARTIGO CIENTÍFICO - FORMATO ABNT
+% Baseado em abnTeX2 - Normas ABNT NBR 6022:2018
+% ============================================================================
+
+\documentclass[
+    % Opções da classe memoir
+    article,            % Indica que é um artigo acadêmico
+    11pt,               % Tamanho da fonte
+    oneside,            % Para impressão em apenas uma face
+    a4paper,            % Tamanho do papel
+    % Opções da classe abntex2
+    chapter=TITLE,      % Títulos de capítulos convertidos em letras maiúsculas
+    section=TITLE,      % Títulos de seções convertidos em letras maiúsculas
+    %subsection=TITLE,  % Títulos de subseções convertidos em letras maiúsculas
+    %subsubsection=TITLE,% Títulos de subsubseções convertidos em letras maiúsculas
+    % Opções do pacote babel
+    english,            % Idioma adicional para hifenização
+    french,             % Idioma adicional para hifenização
+    spanish,            % Idioma adicional para hifenização
+    brazil,             % O último idioma é o principal do documento
+]{abntex2}
+
+% ==================== PACOTES ESSENCIAIS ====================================
+\usepackage{lmodern}            % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}        % Seleção de códigos de fonte
+\usepackage[utf8]{inputenc}     % Codificação do documento
+\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção
+\usepackage{color}              % Controle das cores
+\usepackage{graphicx}           % Inclusão de gráficos
+\usepackage{microtype}          % Para melhorias de justificação
+\usepackage{lipsum}             % Geração de texto dummy (remover em versão final)
+
+% ==================== PACOTES DE CITAÇÕES ===================================
+\usepackage[brazilian,hyperpageref]{backref}    % Páginas com citações na bibliografia
+\usepackage[alf]{abntex2cite}   % Citações padrão ABNT
+
+% ==================== PACOTES ADICIONAIS ====================================
+\usepackage{amsmath,amssymb,amsfonts}  % Matemática avançada
+\usepackage{booktabs}                   % Tabelas profissionais
+\usepackage{multirow}                   % Tabelas com múltiplas linhas
+\usepackage{subfig}                     % Subfiguras
+\usepackage{listings}                   % Listagens de código
+\usepackage{algorithm}                  % Algoritmos
+\usepackage{algpseudocode}             % Pseudocódigo
+
+% ==================== CONFIGURAÇÕES DE LISTAGENS ============================
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    rulecolor=\color{black},
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+% ==================== CONFIGURAÇÕES DE APARÊNCIA ============================
+\definecolor{blue}{RGB}{41,5,195}
+
+% Configurações do pacote backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+\renewcommand{\backref}{}
+\renewcommand*{\backrefalt}[4]{
+    \ifcase #1
+        Nenhuma citação no texto.
+    \or
+        Citado na página #2.
+    \else
+        Citado #1 vezes nas páginas #2.
+    \fi}
+
+% Informações do PDF
+\makeatletter
+\hypersetup{
+    pdftitle={\@title}, 
+    pdfauthor={\@author},
+    pdfsubject={Artigo Científico},
+    pdfcreator={LaTeX with abnTeX2},
+    pdfkeywords={palavra-chave1}{palavra-chave2}{palavra-chave3}, 
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=blue,         % color of internal links
+    citecolor=blue,         % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue,
+    bookmarksdepth=4
+}
+\makeatother
+
+% Espaçamentos entre linhas e parágrafos
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+% ==================== INFORMAÇÕES DO ARTIGO =================================
+\titulo{Título do Artigo Científico: Um Estudo sobre Metodologia de Pesquisa}
+
+\autor{Nome Completo do Primeiro Autor\thanks{Graduando em Ciência da Computação, 
+Universidade Federal de Exemplo. E-mail: autor1@email.com}
+\and Nome Completo do Segundo Autor\thanks{Doutorando em Ciência da Computação, 
+Universidade Federal de Exemplo. E-mail: autor2@email.com}
+\and Prof. Dr. Nome do Orientador\thanks{Professor do Departamento de Computação, 
+Universidade Federal de Exemplo. E-mail: orientador@email.com}}
+
+\local{Brasil}
+\data{2024}
+
+% ============================================================================
+% INÍCIO DO DOCUMENTO
+% ============================================================================
+\begin{document}
+
+\selectlanguage{brazil}
+\frenchspacing 
+
+% ============================================================================
+% TÍTULO E AUTORES
+% ============================================================================
+\maketitle
+
+% ============================================================================
+% RESUMO EM PORTUGUÊS
+% ============================================================================
+\begin{resumoumacoluna}
+Este artigo apresenta uma visão geral sobre a elaboração de artigos científicos 
+seguindo as normas da Associação Brasileira de Normas Técnicas (ABNT). O resumo 
+deve conter entre 150 e 250 palavras, apresentando de forma concisa o objetivo, 
+a metodologia, os principais resultados e as conclusões do trabalho. Não deve 
+conter citações bibliográficas. O texto deve ser redigido em parágrafo único, 
+com espaçamento simples e justificado. Recomenda-se o uso da terceira pessoa 
+do singular e de verbos na voz ativa. Este template foi desenvolvido utilizando 
+a classe abnTeX2, que implementa as normas ABNT para documentos científicos, 
+especialmente a NBR 6022:2018, que trata da apresentação de artigos científicos. 
+O template inclui exemplos de citações, figuras, tabelas, equações e outros 
+elementos comumente utilizados em artigos acadêmicos.
+
+\vspace{\onelineskip}
+ 
+\noindent
+\textbf{Palavras-chave}: Artigo científico. ABNT. Metodologia científica. 
+LaTeX. AbnTeX2.
+\end{resumoumacoluna}
+
+% ============================================================================
+% ABSTRACT EM INGLÊS
+% ============================================================================
+\renewcommand{\resumoname}{Abstract}
+\begin{resumoumacoluna}
+\begin{otherlanguage*}{english}
+This paper presents an overview of the preparation of scientific articles 
+following the standards of the Brazilian Association of Technical Standards (ABNT). 
+The abstract should contain between 150 and 250 words, presenting concisely 
+the objective, methodology, main results and conclusions of the work. It should 
+not contain bibliographic citations. The text should be written in a single 
+paragraph, with simple spacing and justified. It is recommended to use the third 
+person singular and verbs in the active voice. This template was developed using 
+the abnTeX2 class, which implements ABNT standards for scientific documents, 
+especially NBR 6022:2018, which deals with the presentation of scientific articles. 
+The template includes examples of citations, figures, tables, equations and other 
+elements commonly used in academic articles.
+
+\vspace{\onelineskip}
+
+\noindent
+\textbf{Keywords}: Scientific article. ABNT. Scientific methodology. LaTeX. 
+AbnTeX2.
+\end{otherlanguage*}
+\end{resumoumacoluna}
+
+% ============================================================================
+% TEXTO DO ARTIGO
+% ============================================================================
+\textual
+
+% ============================================================================
+\section{Introdução}
+% ============================================================================
+\label{sec:introducao}
+
+A comunicação científica é fundamental para o avanço do conhecimento e a 
+disseminação de novas descobertas. Os artigos científicos constituem uma das 
+principais formas de divulgação de resultados de pesquisas acadêmicas 
+\cite{severino2007metodologia}.
+
+Este documento apresenta um template completo para elaboração de artigos 
+científicos no formato ABNT, utilizando o sistema \LaTeX{} e a classe 
+\texttt{abnTeX2}. A Associação Brasileira de Normas Técnicas estabelece 
+diretrizes específicas para a formatação de trabalhos acadêmicos através 
+da norma NBR 6022:2018 \cite{abnt2018}.
+
+\subsection{Contextualização}
+\label{subsec:contextualizacao}
+
+O desenvolvimento de pesquisas científicas exige não apenas rigor metodológico, 
+mas também a adequada apresentação dos resultados. A padronização dos documentos 
+científicos facilita a leitura, compreensão e avaliação dos trabalhos pela 
+comunidade acadêmica.
+
+\lipsum[1]
+
+\subsection{Justificativa}
+\label{subsec:justificativa}
+
+A necessidade de seguir normas técnicas na elaboração de documentos acadêmicos 
+justifica-se pela busca de uniformização e qualidade na apresentação de trabalhos 
+científicos. Como afirma \citeonline{gil2008metodos}, "a apresentação formal 
+de um trabalho científico é tão importante quanto seu conteúdo".
+
+\subsection{Objetivos}
+\label{subsec:objetivos}
+
+O objetivo deste artigo é apresentar um modelo completo e funcional para 
+elaboração de artigos científicos conforme as normas ABNT. 
+
+Os objetivos específicos incluem:
+
+\begin{itemize}
+    \item Demonstrar a estrutura básica de um artigo científico;
+    \item Exemplificar o uso de citações diretas e indiretas;
+    \item Ilustrar a inserção de figuras, tabelas e equações;
+    \item Apresentar boas práticas na redação científica.
+\end{itemize}
+
+\subsection{Organização do Artigo}
+\label{subsec:organizacao}
+
+Este artigo está organizado da seguinte forma: a \autoref{sec:fundamentacao} 
+apresenta a fundamentação teórica; a \autoref{sec:metodologia} descreve a 
+metodologia utilizada; a \autoref{sec:resultados} apresenta e discute os 
+resultados; e a \autoref{sec:conclusao} apresenta as conclusões e 
+recomendações para trabalhos futuros.
+
+% ============================================================================
+\section{Fundamentação Teórica}
+% ============================================================================
+\label{sec:fundamentacao}
+
+Esta seção apresenta os conceitos fundamentais necessários para a compreensão 
+do trabalho desenvolvido.
+
+\subsection{Normas ABNT para Artigos Científicos}
+\label{subsec:normas-abnt}
+
+A NBR 6022:2018 estabelece os princípios gerais para a apresentação de artigos 
+em publicações periódicas científicas impressas. Segundo a norma, um artigo 
+científico é definido como parte de uma publicação com autoria declarada, que 
+apresenta e discute ideias, métodos, técnicas, processos e resultados nas 
+diversas áreas do conhecimento \cite{abnt2018}.
+
+\lipsum[2]
+
+\subsection{Elementos de um Artigo Científico}
+\label{subsec:elementos}
+
+Um artigo científico completo deve conter elementos pré-textuais, textuais e 
+pós-textuais, conforme descrito a seguir.
+
+\subsubsection{Elementos Pré-textuais}
+\label{subsubsec:pre-textuais}
+
+Os elementos pré-textuais incluem:
+
+\begin{enumerate}
+    \item Título e subtítulo (se houver);
+    \item Nome(s) do(s) autor(es);
+    \item Resumo na língua do texto;
+    \item Palavras-chave na língua do texto;
+    \item Resumo em língua estrangeira (Abstract);
+    \item Palavras-chave em língua estrangeira (Keywords).
+\end{enumerate}
+
+\subsubsection{Elementos Textuais}
+\label{subsubsec:textuais}
+
+O texto do artigo deve ser organizado em seções que apresentem:
+
+\begin{itemize}
+    \item \textbf{Introdução:} contextualização, justificativa e objetivos;
+    \item \textbf{Desenvolvimento:} fundamentação teórica, metodologia e 
+    apresentação dos dados/resultados;
+    \item \textbf{Conclusão:} síntese dos resultados e recomendações.
+\end{itemize}
+
+\subsection{Citações e Referências}
+\label{subsec:citacoes}
+
+As citações podem ser diretas ou indiretas. Citações diretas com até três 
+linhas devem vir entre aspas, como exemplo: segundo \citeonline{lakatos2003}, 
+"a pesquisa científica requer criatividade, disciplina, organização e modéstia".
+
+Citações com mais de três linhas devem ser destacadas com recuo de 4 cm, fonte 
+menor e sem aspas:
+
+\begin{citacao}
+A pesquisa científica não é apenas um procedimento formal, com método de 
+pensamento reflexivo, que requer um tratamento científico e se constitui no 
+caminho para conhecer a realidade ou para descobrir verdades parciais. Significa 
+muito mais do que apenas procurar a verdade: é encontrar respostas para questões 
+propostas, utilizando métodos científicos \cite{lakatos2003}.
+\end{citacao}
+
+Citações indiretas (paráfrase) não necessitam de aspas, apenas a indicação da 
+fonte, como: a metodologia científica envolve procedimentos sistemáticos para 
+obtenção de conhecimento \cite{gil2008metodos}.
+
+% ============================================================================
+\section{Metodologia}
+% ============================================================================
+\label{sec:metodologia}
+
+Esta seção descreve os procedimentos metodológicos adotados neste trabalho.
+
+\subsection{Tipo de Pesquisa}
+\label{subsec:tipo-pesquisa}
+
+Quanto à natureza, esta é uma pesquisa aplicada. Quanto aos objetivos, 
+caracteriza-se como descritiva. Quanto aos procedimentos técnicos, trata-se 
+de uma pesquisa bibliográfica \cite{gil2008metodos}.
+
+\lipsum[3]
+
+\subsection{Instrumentos de Coleta de Dados}
+\label{subsec:instrumentos}
+
+\lipsum[4]
+
+\subsection{Procedimentos de Análise}
+\label{subsec:procedimentos}
+
+\lipsum[5]
+
+% ============================================================================
+\section{Resultados e Discussão}
+% ============================================================================
+\label{sec:resultados}
+
+Esta seção apresenta os resultados obtidos e a discussão sobre os mesmos.
+
+\subsection{Exemplo de Figura}
+\label{subsec:figura}
+
+As figuras devem ser citadas no texto e centralizadas na página. A 
+\autoref{fig:exemplo} ilustra um exemplo de inserção de figura.
+
+\begin{figure}[htb]
+    \centering
+    \caption{Exemplo de inserção de figura em artigo científico}
+    \label{fig:exemplo}
+    % Para inserir uma imagem real, descomente a linha abaixo:
+    % \includegraphics[width=0.6\textwidth]{imagens/exemplo.png}
+    % Por enquanto, usamos um placeholder:
+    \fbox{\parbox{0.6\textwidth}{\centering\vspace{3cm}
+    Insira sua figura aqui\\
+    (use o comando includegraphics)
+    \vspace{3cm}}}
+    \legend{Fonte: Elaborado pelos autores (2024).}
+\end{figure}
+
+Observe que a legenda da figura fica acima da imagem, enquanto a fonte fica 
+abaixo, conforme normas ABNT.
+
+\subsection{Exemplo de Tabela}
+\label{subsec:tabela}
+
+As tabelas devem seguir o padrão IBGE, sem linhas verticais. A 
+\autoref{tab:exemplo} apresenta um exemplo de tabela.
+
+\begin{table}[htb]
+    \centering
+    \caption{Resultados da análise comparativa de métodos}
+    \label{tab:exemplo}
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Método} & \textbf{Precisão (\%)} & \textbf{Recall (\%)} & \textbf{F1-Score} \\
+        \midrule
+        Método A & 87.5 & 82.3 & 0.848 \\
+        Método B & 91.2 & 88.7 & 0.899 \\
+        Método C & 89.8 & 85.1 & 0.874 \\
+        Proposta & \textbf{93.4} & \textbf{90.2} & \textbf{0.917} \\
+        \bottomrule
+    \end{tabular}
+    \legend{Fonte: Dados da pesquisa (2024).}
+\end{table}
+
+Note que a legenda da tabela fica acima e a fonte fica abaixo, seguindo o 
+padrão ABNT.
+
+\subsection{Exemplo de Equação}
+\label{subsec:equacao}
+
+Equações devem ser numeradas sequencialmente. A \autoref{eq:pitagoras} 
+apresenta o teorema de Pitágoras.
+
+\begin{equation}
+    a^2 + b^2 = c^2
+    \label{eq:pitagoras}
+\end{equation}
+
+\noindent onde $a$ e $b$ são os catetos e $c$ é a hipotenusa de um triângulo 
+retângulo.
+
+Para equações mais complexas, pode-se usar o ambiente \texttt{align}:
+
+\begin{align}
+    f(x) &= \int_{-\infty}^{\infty} e^{-x^2} dx \label{eq:integral} \\
+    &= \sqrt{\pi} \label{eq:resultado}
+\end{align}
+
+\subsection{Exemplo de Lista}
+\label{subsec:lista}
+
+As listas podem ser numeradas ou não numeradas. Exemplo de lista numerada:
+
+\begin{enumerate}
+    \item Primeiro item da lista numerada;
+    \item Segundo item da lista numerada;
+    \item Terceiro item da lista numerada.
+\end{enumerate}
+
+Exemplo de lista não numerada:
+
+\begin{itemize}
+    \item Primeiro item da lista não numerada;
+    \item Segundo item da lista não numerada;
+    \item Terceiro item da lista não numerada.
+\end{itemize}
+
+\subsection{Discussão dos Resultados}
+\label{subsec:discussao}
+
+\lipsum[6-7]
+
+% ============================================================================
+\section{Conclusão}
+% ============================================================================
+\label{sec:conclusao}
+
+Este artigo apresentou um template completo para elaboração de artigos 
+científicos seguindo as normas ABNT, utilizando o sistema \LaTeX{} e a 
+classe \texttt{abnTeX2}.
+
+\subsection{Principais Contribuições}
+\label{subsec:contribuicoes}
+
+As principais contribuições deste trabalho incluem:
+
+\begin{enumerate}
+    \item Apresentação de um template funcional e documentado;
+    \item Exemplificação de todos os elementos principais de um artigo;
+    \item Demonstração de boas práticas em formatação acadêmica;
+    \item Facilitação do processo de redação científica.
+\end{enumerate}
+
+\subsection{Limitações do Estudo}
+\label{subsec:limitacoes}
+
+\lipsum[8]
+
+\subsection{Recomendações para Trabalhos Futuros}
+\label{subsec:trabalhos-futuros}
+
+Como trabalhos futuros, sugere-se:
+
+\begin{itemize}
+    \item Desenvolvimento de templates específicos para diferentes áreas;
+    \item Criação de versões em duas colunas para periódicos específicos;
+    \item Integração com ferramentas de gerenciamento de referências;
+    \item Desenvolvimento de templates para artigos em inglês.
+\end{itemize}
+
+% ============================================================================
+% ELEMENTOS PÓS-TEXTUAIS
+% ============================================================================
+\postextual
+
+% ============================================================================
+% REFERÊNCIAS BIBLIOGRÁFICAS
+% ============================================================================
+\bibliography{referencias}
+
+% ============================================================================
+% GLOSSÁRIO (Opcional)
+% ============================================================================
+% \glossary
+
+% ============================================================================
+% APÊNDICES (Opcional)
+% ============================================================================
+% \begin{apendicesenv}
+% \partapendices
+% 
+% \section{Primeiro Apêndice}
+% \label{apend:A}
+% 
+% Conteúdo do primeiro apêndice.
+% 
+% \end{apendicesenv}
+
+% ============================================================================
+% ANEXOS (Opcional)
+% ============================================================================
+% \begin{anexosenv}
+% \partanexos
+% 
+% \section{Primeiro Anexo}
+% \label{anex:A}
+% 
+% Conteúdo do primeiro anexo.
+% 
+% \end{anexosenv}
+
+% ============================================================================
+% AGRADECIMENTOS (Opcional - pode vir antes das referências)
+% ============================================================================
+\section*{Agradecimentos}
+
+Os autores agradecem à Universidade Federal de Exemplo pelo apoio institucional 
+e à agência de fomento XYZ pelo apoio financeiro (Processo nº 123456/2024-0).
+
+\end{document}
+
+% ============================================================================
+% ARQUIVO referencias.bib (criar separadamente)
+% ============================================================================
+% Exemplo de entradas bibliográficas no formato ABNT:
+%
+% @book{severino2007metodologia,
+%   author = {Severino, Antônio Joaquim},
+%   title = {Metodologia do trabalho científico},
+%   publisher = {Cortez},
+%   address = {São Paulo},
+%   edition = {23},
+%   year = {2007}
+% }
+%
+% @manual{abnt2018,
+%   organization = {ABNT},
+%   title = {NBR 6022: Informação e documentação - Artigo em publicação 
+%            periódica técnica e/ou científica - Apresentação},
+%   address = {Rio de Janeiro},
+%   year = {2018}
+% }
+%
+% @book{lakatos2003,
+%   author = {Lakatos, Eva Maria and Marconi, Marina de Andrade},
+%   title = {Fundamentos de metodologia científica},
+%   publisher = {Atlas},
+%   address = {São Paulo},
+%   edition = {5},
+%   year = {2003}
+% }
+%
+% @book{gil2008metodos,
+%   author = {Gil, Antônio Carlos},
+%   title = {Métodos e técnicas de pesquisa social},
+%   publisher = {Atlas},
+%   address = {São Paulo},
+%   edition = {6},
+%   year = {2008}
+% }
+% ============================================================================

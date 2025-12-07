@@ -1,0 +1,712 @@
+% ============================================================================
+% TEMPLATE PARA TESE DE DOUTORADO / DISSERTAÇÃO DE MESTRADO
+% Baseado em abnTeX2 - Normas ABNT NBR 14724:2011
+% ============================================================================
+
+\documentclass[
+    % Opções da classe memoir
+    12pt,               % Tamanho da fonte
+    openright,          % Capítulos começam em página ímpar (insere página vazia se necessário)
+    twoside,            % Para impressão frente e verso. Use oneside para digital
+    a4paper,            % Tamanho do papel
+    % Opções da classe abntex2
+    %chapter=TITLE,     % Títulos de capítulos em maiúsculas
+    %section=TITLE,     % Títulos de seções em maiúsculas
+    %subsection=TITLE,  % Títulos de subseções em maiúsculas
+    %subsubsection=TITLE,% Títulos de subsubseções em maiúsculas
+    % Opções do pacote babel
+    english,            % Idioma adicional para hifenização
+    french,             % Idioma adicional para hifenização
+    spanish,            % Idioma adicional para hifenização
+    brazil              % O último idioma é o principal do documento
+]{abntex2}
+
+% ==================== PACOTES ESSENCIAIS ====================================
+\usepackage{lmodern}            % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}        % Seleção de códigos de fonte
+\usepackage[utf8]{inputenc}     % Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção
+\usepackage{color}              % Controle das cores
+\usepackage{graphicx}           % Inclusão de gráficos
+\usepackage{microtype}          % Para melhorias de justificação
+\usepackage{lipsum}             % Geração de texto dummy (remover em versão final)
+
+% ==================== PACOTES DE CITAÇÕES ===================================
+\usepackage[brazilian,hyperpageref]{backref}    % Páginas com citações na bibliografia
+\usepackage[alf]{abntex2cite}   % Citações padrão ABNT
+
+% ==================== PACOTES ADICIONAIS ====================================
+\usepackage{amsmath,amssymb,amsfonts}  % Matemática avançada
+\usepackage{algorithm}                  % Algoritmos
+\usepackage{algpseudocode}             % Pseudocódigo
+\usepackage{listings}                   % Código fonte
+\usepackage{multirow}                   % Tabelas com múltiplas linhas
+\usepackage{booktabs}                   % Tabelas profissionais
+\usepackage{rotating}                   % Rotação de objetos
+\usepackage{subfig}                     % Subfiguras
+\usepackage{pdfpages}                   % Inclusão de PDFs
+
+% ==================== CONFIGURAÇÕES DE CORES ================================
+\definecolor{blue}{RGB}{41,5,195}
+
+% ==================== CONFIGURAÇÕES DE LISTAGENS ============================
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    rulecolor=\color{black},
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    title=\lstname,
+}
+
+% ==================== INFORMAÇÕES DO DOCUMENTO ==============================
+\titulo{Título do Trabalho: Subtítulo se Houver}
+\autor{Nome Completo do Autor}
+\local{Nome da Cidade}
+\data{2024}
+\orientador{Prof. Dr. Nome do Orientador}
+\coorientador{Prof. Dr. Nome do Coorientador} % Comentar se não houver
+
+\instituicao{%
+    Universidade Federal de Exemplo -- UFE
+    \par
+    Instituto de Ciências Exatas
+    \par
+    Programa de Pós-Graduação em Ciência da Computação}
+
+\tipotrabalho{Tese (Doutorado)} % Ou: Dissertação (Mestrado)
+
+% O preâmbulo deve conter o tipo do trabalho, o objetivo, o nome da instituição
+% e a área de concentração
+\preambulo{Tese apresentada ao Programa de Pós-Graduação em Ciência da Computação 
+da Universidade Federal de Exemplo como requisito parcial para obtenção do título 
+de Doutor em Ciência da Computação.}
+% Para dissertação: Dissertação apresentada... título de Mestre...
+
+% ==================== CONFIGURAÇÕES DE APARÊNCIA ============================
+% Alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% Informações do PDF
+\makeatletter
+\hypersetup{
+    pdftitle={\@title}, 
+    pdfauthor={\@author},
+    pdfsubject={\imprimirpreambulo},
+    pdfcreator={LaTeX with abnTeX2},
+    pdfkeywords={palavra-chave1}{palavra-chave2}{palavra-chave3}, 
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=blue,         % color of internal links
+    citecolor=blue,         % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue,
+    bookmarksdepth=4
+}
+\makeatother
+
+% Espaçamentos entre linhas e parágrafos
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+% Compila o índice
+\makeindex
+
+% ============================================================================
+% INÍCIO DO DOCUMENTO
+% ============================================================================
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ============================================================================
+% ELEMENTOS PRÉ-TEXTUAIS
+% ============================================================================
+\pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+
+% ---
+% Inserir a ficha bibliográfica
+% ---
+% Isto é um exemplo de Ficha Catalográfica, ou "Dados internacionais de
+% catalogação-na-publicação". Você pode utilizar este modelo como referência. 
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+% \begin{fichacatalografica}
+%     \includepdf{fig_ficha_catalografica.pdf}
+% \end{fichacatalografica}
+
+\begin{fichacatalografica}
+    \sffamily
+    \vspace*{\fill}                 % Posição vertical
+    \begin{center}                  % Minipage Centralizado
+    \fbox{\begin{minipage}[c][8cm]{13.5cm}       % Largura
+    \small
+    \imprimirautor
+    %Sobrenome, Nome do autor
+    
+    \hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+    \imprimirlocal, \imprimirdata-
+    
+    \hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+    
+    \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+    
+    \hspace{0.5cm}
+    \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+    \imprimirdata.}\\
+    
+    \hspace{0.5cm}
+        1. Palavra-chave1.
+        2. Palavra-chave2.
+        3. Palavra-chave3.
+        I. Orientador.
+        II. Universidade xxx.
+        III. Faculdade de xxx.
+        IV. Título\\ 
+    
+    \hspace{8.75cm} CDU 02:141:005.7\\
+    
+    \end{minipage}}
+    \end{center}
+\end{fichacatalografica}
+
+% ---
+% Inserir folha de aprovação
+% ---
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \begin{folhadeaprovacao}
+% \includepdf{folhadeaprovacao_final.pdf}
+% \end{folhadeaprovacao}
+%
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+    
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    \vspace*{\fill}
+   \end{center}
+        
+   Trabalho aprovado. \imprimirlocal, \underline{\hspace{2cm}} de \underline{\hspace{4cm}} de \imprimirdata:
+
+   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+   \assinatura{\textbf{Prof. Dr. Nome Completo} \\ Instituição}
+   \assinatura{\textbf{Prof. Dr. Nome Completo} \\ Instituição}
+   \assinatura{\textbf{Prof. Dr. Nome Completo} \\ Instituição}
+   %\assinatura{\textbf{Professor} \\ Convidado 4}
+      
+   \begin{center}
+    \vspace*{0.5cm}
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+  
+\end{folhadeaprovacao}
+
+% ---
+% Dedicatória (Opcional)
+% ---
+\begin{dedicatoria}
+   \vspace*{\fill}
+   \centering
+   \noindent
+   \textit{Este trabalho é dedicado aos meus pais e família...} \vspace*{\fill}
+\end{dedicatoria}
+
+% ---
+% Agradecimentos (Opcional)
+% ---
+\begin{agradecimentos}
+Agradeço primeiramente a Deus...
+
+Aos meus orientadores...
+
+À minha família...
+
+Aos colegas do laboratório...
+
+Às agências de fomento...
+
+\end{agradecimentos}
+
+% ---
+% Epígrafe (Opcional)
+% ---
+\begin{epigrafe}
+    \vspace*{\fill}
+    \begin{flushright}
+        \textit{``Não vos amoldeis às estruturas deste mundo, \\
+        mas transformai-vos pela renovação da mente, \\
+        a fim de distinguir qual é a vontade de Deus: \\
+        o que é bom, o que Lhe é agradável, o que é perfeito.''\\
+        (Bíblia Sagrada, Romanos 12, 2)}
+    \end{flushright}
+\end{epigrafe}
+
+% ---
+% RESUMOS
+% ---
+
+% Resumo em português
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}
+Este é o resumo do trabalho. Deve conter entre 150 e 500 palavras. 
+Deve apresentar de forma concisa os objetivos, a metodologia, os resultados 
+e as conclusões do trabalho. Não deve conter citações. Evite usar siglas.
+\lipsum[1]
+
+ \textbf{Palavras-chave}: Palavra-chave 1. Palavra-chave 2. Palavra-chave 3.
+\end{resumo}
+
+% Resumo em inglês
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+   This is the english abstract. It should contain between 150 and 500 words.
+   It must concisely present the objectives, methodology, results and 
+   conclusions of the work. It should not contain citations. Avoid using acronyms.
+   \lipsum[1]
+
+   \vspace{\onelineskip}
+ 
+   \noindent 
+   \textbf{Keywords}: Keyword 1. Keyword 2. Keyword 3.
+ \end{otherlanguage*}
+\end{resumo}
+
+% ---
+% LISTAS
+% ---
+
+% Lista de ilustrações
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+% Lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+% Lista de abreviaturas e siglas
+\begin{siglas}
+  \item[ABNT] Associação Brasileira de Normas Técnicas
+  \item[API] Application Programming Interface
+  \item[CNN] Convolutional Neural Network
+  \item[GPU] Graphics Processing Unit
+  \item[HTTP] HyperText Transfer Protocol
+  \item[IA] Inteligência Artificial
+  \item[ML] Machine Learning
+  \item[RNA] Rede Neural Artificial
+  \item[TCC] Trabalho de Conclusão de Curso
+  \item[UFE] Universidade Federal de Exemplo
+\end{siglas}
+
+% Lista de símbolos
+\begin{simbolos}
+  \item[$\alpha$] Alfa
+  \item[$\beta$] Beta
+  \item[$\gamma$] Gama
+  \item[$\delta$] Delta
+  \item[$\epsilon$] Epsilon
+  \item[$\theta$] Theta
+  \item[$\lambda$] Lambda
+  \item[$\mu$] Mi
+  \item[$\pi$] Pi
+  \item[$\sigma$] Sigma
+  \item[$\Omega$] Ômega
+  \item[$\in$] Pertence
+  \item[$\forall$] Para todo
+  \item[$\exists$] Existe
+  \item[$\sum$] Somatório
+  \item[$\int$] Integral
+\end{simbolos}
+
+% ---
+% Inserir o sumário
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% ============================================================================
+% ELEMENTOS TEXTUAIS
+% ============================================================================
+\textual
+
+% ============================================================================
+% INTRODUÇÃO
+% ============================================================================
+\chapter{Introdução}
+\label{cap:introducao}
+
+Este documento é um exemplo de template para elaboração de teses de doutorado 
+e dissertações de mestrado utilizando a classe \texttt{abntex2}, que implementa 
+as normas ABNT, especialmente a NBR 14724:2011.
+
+\section{Contextualização}
+
+Apresente aqui o contexto geral do trabalho, situando o leitor sobre a área 
+de pesquisa e sua importância. \lipsum[2]
+
+\section{Motivação}
+
+Explique o que motivou a realização desta pesquisa, quais problemas ou lacunas 
+você identificou na literatura. \lipsum[3]
+
+\section{Objetivos}
+
+\subsection{Objetivo Geral}
+
+O objetivo geral deste trabalho é... \lipsum[4]
+
+\subsection{Objetivos Específicos}
+
+Os objetivos específicos são:
+
+\begin{itemize}
+    \item Objetivo específico 1...
+    \item Objetivo específico 2...
+    \item Objetivo específico 3...
+    \item Objetivo específico 4...
+\end{itemize}
+
+\section{Contribuições}
+
+Este trabalho traz as seguintes contribuições para a área:
+
+\begin{enumerate}
+    \item Contribuição 1...
+    \item Contribuição 2...
+    \item Contribuição 3...
+\end{enumerate}
+
+\section{Organização do Trabalho}
+
+Este trabalho está organizado da seguinte forma:
+
+\begin{itemize}
+    \item O \autoref{cap:fundamentacao} apresenta a fundamentação teórica...
+    \item O \autoref{cap:trabalhos} discute os trabalhos relacionados...
+    \item O \autoref{cap:proposta} descreve a proposta desenvolvida...
+    \item O \autoref{cap:resultados} apresenta os resultados obtidos...
+    \item O \autoref{cap:conclusao} conclui o trabalho e aponta direções futuras...
+\end{itemize}
+
+% ============================================================================
+% FUNDAMENTAÇÃO TEÓRICA
+% ============================================================================
+\chapter{Fundamentação Teórica}
+\label{cap:fundamentacao}
+
+Este capítulo apresenta os conceitos fundamentais necessários para a compreensão 
+do trabalho desenvolvido.
+
+\section{Conceito Fundamental 1}
+
+Explique o primeiro conceito fundamental. Use citações como \citeonline{knuth1984} 
+ou \cite{lamport1994}.
+
+\lipsum[5-6]
+
+\subsection{Subconceito 1.1}
+
+\lipsum[7]
+
+\subsection{Subconceito 1.2}
+
+\lipsum[8]
+
+\section{Conceito Fundamental 2}
+
+\lipsum[9-10]
+
+\section{Exemplos de Elementos}
+
+\subsection{Exemplo de Figura}
+
+A \autoref{fig:exemplo} mostra um exemplo de como inserir figuras.
+
+\begin{figure}[htb]
+    \centering
+    \caption{Exemplo de figura}
+    % \includegraphics[width=0.5\textwidth]{imagens/exemplo.png}
+    \fbox{Insira sua figura aqui}
+    \label{fig:exemplo}
+    \legend{Fonte: Elaborado pelo autor (2024)}
+\end{figure}
+
+\subsection{Exemplo de Tabela}
+
+A \autoref{tab:exemplo} apresenta um exemplo de tabela.
+
+\begin{table}[htb]
+    \centering
+    \caption{Exemplo de tabela}
+    \label{tab:exemplo}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Item} & \textbf{Valor 1} & \textbf{Valor 2} \\
+        \midrule
+        Item A & 10.5 & 20.3 \\
+        Item B & 15.2 & 18.7 \\
+        Item C & 12.8 & 22.1 \\
+        \bottomrule
+    \end{tabular}
+    \legend{Fonte: Elaborado pelo autor (2024)}
+\end{table}
+
+\subsection{Exemplo de Equação}
+
+A equação de uma reta pode ser expressa como mostrado na \autoref{eq:reta}.
+
+\begin{equation}
+    y = ax + b
+    \label{eq:reta}
+\end{equation}
+
+Onde $y$ é a variável dependente, $x$ é a variável independente, $a$ é o 
+coeficiente angular e $b$ é o coeficiente linear.
+
+\subsection{Exemplo de Citação Direta Longa}
+
+Para citações com mais de três linhas, use o ambiente \texttt{citacao}:
+
+\begin{citacao}
+Esta é uma citação direta longa, com mais de três linhas. Ela deve ter recuo 
+de 4 cm da margem esquerda, texto em fonte menor (tamanho 10), sem aspas e com 
+espaçamento simples entre linhas. Este formato segue as normas da ABNT para 
+citações longas em trabalhos acadêmicos \cite{abnt2011}.
+\end{citacao}
+
+% ============================================================================
+% TRABALHOS RELACIONADOS
+% ============================================================================
+\chapter{Trabalhos Relacionados}
+\label{cap:trabalhos}
+
+Este capítulo apresenta e discute os principais trabalhos relacionados à 
+pesquisa desenvolvida.
+
+\section{Trabalho Relacionado 1}
+
+\lipsum[11-12]
+
+\section{Trabalho Relacionado 2}
+
+\lipsum[13-14]
+
+\section{Análise Comparativa}
+
+\lipsum[15]
+
+% ============================================================================
+% PROPOSTA / METODOLOGIA
+% ============================================================================
+\chapter{Proposta}
+\label{cap:proposta}
+
+Este capítulo descreve detalhadamente a solução/metodologia proposta neste trabalho.
+
+\section{Visão Geral}
+
+\lipsum[16-17]
+
+\section{Arquitetura}
+
+\lipsum[18-19]
+
+\section{Detalhamento da Implementação}
+
+\lipsum[20-21]
+
+% ============================================================================
+% RESULTADOS E DISCUSSÃO
+% ============================================================================
+\chapter{Resultados e Discussão}
+\label{cap:resultados}
+
+Este capítulo apresenta os resultados obtidos e a discussão sobre os mesmos.
+
+\section{Configuração dos Experimentos}
+
+\lipsum[22]
+
+\section{Resultados Obtidos}
+
+\lipsum[23-24]
+
+\section{Discussão}
+
+\lipsum[25-26]
+
+% ============================================================================
+% CONCLUSÃO
+% ============================================================================
+\chapter{Conclusão}
+\label{cap:conclusao}
+
+Este capítulo apresenta as conclusões do trabalho e as perspectivas para 
+trabalhos futuros.
+
+\section{Considerações Finais}
+
+\lipsum[27-28]
+
+\section{Contribuições}
+
+As principais contribuições deste trabalho são:
+
+\begin{enumerate}
+    \item Contribuição 1 revisitada...
+    \item Contribuição 2 revisitada...
+    \item Contribuição 3 revisitada...
+\end{enumerate}
+
+\section{Limitações}
+
+\lipsum[29]
+
+\section{Trabalhos Futuros}
+
+Como trabalhos futuros, sugere-se:
+
+\begin{itemize}
+    \item Extensão 1...
+    \item Extensão 2...
+    \item Extensão 3...
+\end{itemize}
+
+% ============================================================================
+% ELEMENTOS PÓS-TEXTUAIS
+% ============================================================================
+\postextual
+
+% ============================================================================
+% REFERÊNCIAS BIBLIOGRÁFICAS
+% ============================================================================
+\bibliography{referencias}
+
+% ============================================================================
+% GLOSSÁRIO (Opcional)
+% ============================================================================
+%\glossary
+
+% ============================================================================
+% APÊNDICES (Opcional)
+% ============================================================================
+\begin{apendicesenv}
+
+\partapendices
+
+\chapter{Primeiro Apêndice}
+\label{apend:primeiro}
+
+Apêndices são textos ou documentos elaborados pelo próprio autor.
+
+\lipsum[30-31]
+
+\chapter{Segundo Apêndice}
+\label{apend:segundo}
+
+\lipsum[32-33]
+
+\end{apendicesenv}
+
+% ============================================================================
+% ANEXOS (Opcional)
+% ============================================================================
+\begin{anexosenv}
+
+\partanexos
+
+\chapter{Primeiro Anexo}
+\label{anex:primeiro}
+
+Anexos são textos ou documentos não elaborados pelo autor.
+
+\lipsum[34-35]
+
+\chapter{Segundo Anexo}
+\label{anex:segundo}
+
+\lipsum[36-37]
+
+\end{anexosenv}
+
+% ============================================================================
+% ÍNDICE REMISSIVO (Opcional)
+% ============================================================================
+%\phantompart
+%\printindex
+
+\end{document}
+
+% ============================================================================
+% ARQUIVO referencias.bib (criar separadamente)
+% ============================================================================
+% Exemplo de entradas bibliográficas:
+%
+% @book{knuth1984,
+%   author = {Donald E. Knuth},
+%   title = {The TeXbook},
+%   publisher = {Addison-Wesley},
+%   year = {1984}
+% }
+%
+% @book{lamport1994,
+%   author = {Leslie Lamport},
+%   title = {LaTeX: A Document Preparation System},
+%   publisher = {Addison-Wesley},
+%   edition = {2nd},
+%   year = {1994}
+% }
+%
+% @manual{abnt2011,
+%   organization = {ABNT},
+%   title = {NBR 14724: Informação e documentação - Trabalhos acadêmicos - Apresentação},
+%   address = {Rio de Janeiro},
+%   year = {2011}
+% }
+% ============================================================================

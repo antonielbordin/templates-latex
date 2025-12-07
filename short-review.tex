@@ -1,0 +1,193 @@
+% ============================================================================
+% Template para Short Review de Artigos Científicos
+% Com normas ABNT e formatação adequada
+% ============================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% ========================= PACOTES ESSENCIAIS ===============================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{times}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+
+% Pacote para citações e referências no padrão ABNT
+\usepackage[alf,abnt-emphasize=bf]{abntex2cite}
+
+% Configuração das margens
+\geometry{
+  a4paper,
+  left=3cm,
+  right=2cm,
+  top=3cm,
+  bottom=2cm
+}
+
+% Espaçamento entre linhas
+\onehalfspacing
+
+% Configuração dos títulos de seções
+\titleformat{\section}
+  {\normalfont\fontsize{12}{15}\bfseries\uppercase}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{15}\bfseries}{\thesubsection}{1em}{}
+
+% ======================= INFORMAÇÕES DO DOCUMENTO ===========================
+\title{\textbf{SHORT REVIEW: [TÍTULO DO ARTIGO REVISADO]}}
+\author{Seu Nome\thanks{email@instituicao.edu.br}}
+\date{\today}
+
+% ============================================================================
+\begin{document}
+
+\maketitle
+
+% ======================= DADOS DO ARTIGO REVISADO ===========================
+\section*{Informações do Artigo Revisado}
+
+\noindent\textbf{Título:} Título Completo do Artigo\\
+\textbf{Autores:} Nome dos Autores\\
+\textbf{Periódico/Conferência:} Nome da Publicação, v. X, n. Y, p. Z-W, Ano.\\
+\textbf{DOI/URL:} [inserir DOI ou link]\\
+\textbf{Palavras-chave:} palavra1; palavra2; palavra3
+
+% ========================== RESUMO EXECUTIVO ================================
+\section*{Resumo Executivo}
+
+Apresente aqui uma síntese concisa do artigo revisado (150-250 palavras). Inclua:
+\begin{itemize}
+  \item O problema ou questão de pesquisa abordada
+  \item A metodologia empregada
+  \item Os principais resultados
+  \item As conclusões mais relevantes
+\end{itemize}
+
+% =========================== INTRODUÇÃO =====================================
+\section{Introdução}
+
+Contextualize o tema do artigo revisado, apresentando:
+\begin{itemize}
+  \item A relevância do tema na área de conhecimento
+  \item Os objetivos do artigo original
+  \item A justificativa para a realização desta revisão
+\end{itemize}
+
+Exemplo de citação direta curta: segundo \citeonline{autor2023}, "texto citado com menos de três linhas".
+
+Exemplo de citação indireta: os estudos recentes demonstram avanços significativos na área \cite{autor2023}.
+
+% ==================== SÍNTESE DO CONTEÚDO ===================================
+\section{Síntese do Conteúdo}
+
+\subsection{Fundamentação Teórica}
+
+Descreva as principais teorias, conceitos e trabalhos relacionados que fundamentam o artigo revisado.
+
+\subsection{Metodologia}
+
+Resuma a metodologia utilizada pelos autores:
+\begin{itemize}
+  \item Tipo de pesquisa (qualitativa, quantitativa, mista)
+  \item Instrumentos de coleta de dados
+  \item Procedimentos de análise
+  \item População/amostra estudada (se aplicável)
+\end{itemize}
+
+\subsection{Principais Resultados}
+
+Apresente os resultados mais significativos encontrados no estudo, organizando-os de forma clara e objetiva.
+
+Para citações longas (mais de três linhas), use:
+
+\begin{citacao}
+Texto da citação direta longa, com mais de três linhas. Este formato deve ser usado para preservar a integridade de passagens importantes do texto original. A citação deve ter recuo de 4cm da margem esquerda, fonte menor e espaçamento simples \cite{autor2023}.
+\end{citacao}
+
+% ======================= ANÁLISE CRÍTICA ====================================
+\section{Análise Crítica}
+
+\subsection{Pontos Fortes}
+
+Identifique e discuta os aspectos positivos do artigo:
+\begin{itemize}
+  \item Originalidade da contribuição
+  \item Rigor metodológico
+  \item Clareza na apresentação
+  \item Relevância dos resultados
+  \item Qualidade das referências
+\end{itemize}
+
+\subsection{Limitações e Pontos de Melhoria}
+
+Apresente uma análise crítica construtiva sobre:
+\begin{itemize}
+  \item Possíveis limitações metodológicas
+  \item Gaps ou lacunas não exploradas
+  \item Aspectos que poderiam ser mais aprofundados
+  \item Sugestões de melhorias ou extensões
+\end{itemize}
+
+\subsection{Contribuições para a Área}
+
+Discuta como o artigo contribui para o avanço do conhecimento na área, incluindo:
+\begin{itemize}
+  \item Inovações teóricas ou metodológicas
+  \item Aplicações práticas
+  \item Direcionamentos para pesquisas futuras
+\end{itemize}
+
+% ======================== CONSIDERAÇÕES FINAIS ==============================
+\section{Considerações Finais}
+
+Sintetize sua avaliação geral do artigo, destacando:
+\begin{itemize}
+    \item Avaliação geral da qualidade e relevância
+    \item Recomendação de leitura (para quem seria útil)
+    \item Possíveis impactos na área
+\end{itemize}
+
+% ========================= REFERÊNCIAS ======================================
+% As referências são geradas automaticamente a partir do arquivo .bib
+% Use o comando \cite{chave} ou \citeonline{chave} no texto
+
+\bibliography{referencias}
+
+% ============================================================================
+% ARQUIVO referencias.bib (criar separadamente)
+% ============================================================================
+% Exemplo de entradas no arquivo .bib:
+%
+% @article{autor2023,
+%   author = {Sobrenome, Nome},
+%   title = {Título do Artigo},
+%   journal = {Nome do Periódico},
+%   year = {2023},
+%   volume = {10},
+%   number = {2},
+%   pages = {100--120},
+%   doi = {10.xxxx/xxxxx}
+% }
+%
+% @book{autorlivro2022,
+%   author = {Sobrenome, Nome},
+%   title = {Título do Livro},
+%   publisher = {Editora},
+%   address = {Cidade},
+%   year = {2022}
+% }
+%
+% @inproceedings{autorconferencia2023,
+%   author = {Sobrenome, Nome},
+%   title = {Título do Trabalho},
+%   booktitle = {Anais da Conferência},
+%   year = {2023},
+%   pages = {1--10},
+%   address = {Cidade}
+% }
+% ============================================================================
+
+\end{document}
